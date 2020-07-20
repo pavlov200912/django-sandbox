@@ -15,6 +15,8 @@ def post_list(request):
     days, seconds = diff.days, diff.seconds
     hours = days * 24 + seconds // 3600
 
-    html = "<html><body><p>Илья Дорошенко</p> <p><strong>Пи-До-Рас</strong> уже %s часов.</p></body></html>" % str(hours)
+    html = f"<html><body><p>Илья Дорошенко</p> <p><strong>Пи-До-Рас</strong> уже " \
+           f"{days} дней, {seconds // 3600} часов, {(seconds % 3600) // 60} минут, {(seconds % 60)} секунд.</p>" \
+           f"</body></html>"
     return HttpResponse(html)
     #return render(request, 'blog/post_list.html', {})
